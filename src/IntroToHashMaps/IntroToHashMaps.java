@@ -15,7 +15,7 @@ public class IntroToHashMaps {
 		// root of i.
 		for (int i = 0; i < 501; i++) {
 			roots.put(i, Math.sqrt(i));
-			System.out.println("The square root of " + i + "is" + Math.sqrt(i));
+			System.out.println("The square root of " + i + " is" + Math.sqrt(i));
 		}
 
 	}
