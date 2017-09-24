@@ -9,10 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class TextUndoRedo implements KeyListener{
-	JFrame frame = new JFrame();
+	JFrame frame = new JFrame("The Shift Key is the Undo Key!");
 	JPanel panel = new JPanel();
 	JLabel label = new JLabel();
-	String thing = "hfhgdhdg";
+	String thing = "";
 	
 	Stack <String> text = new Stack<String>();
 	public void UI() {
@@ -34,15 +34,26 @@ public class TextUndoRedo implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println(e.getKeyChar());
-text.push(String.valueOf(e.getKeyChar()));
-thing = thing + text.peek();
-label.setText(thing);
-if(e.getKeyCode()== KeyEvent.VK_BACK_SPACE) {
-	thing=thing.substring(0, thing.length()-1);
-	label.setText(thing);
-}
 		
+
+		//thing = thing + text.peek();
+
+if(e.getKeyCode()== KeyEvent.VK_BACK_SPACE) {
+	String lastletter = thing.substring(thing.length()-1, thing.length()-1);
+	thing=thing.substring(0, thing.length()-2);
+	label.setText(thing);
+	text.push(lastletter);
+	System.out.println(lastletter);
+	
+}
+else if(e.getKeyCode()== KeyEvent.VK_SHIFT){
+	thing = thing+text.pop();
+
+}
+else{
+	thing=thing+String.valueOf(e.getKeyChar());
+}
+label.setText(thing);
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {
