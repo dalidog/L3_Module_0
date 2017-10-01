@@ -39,15 +39,23 @@ public class TextUndoRedo implements KeyListener{
 		//thing = thing + text.peek();
 
 if(e.getKeyCode()== KeyEvent.VK_BACK_SPACE) {
-	String lastletter = thing.substring(thing.length()-1, thing.length()-1);
-	thing=thing.substring(0, thing.length()-2);
+	
+	String lastletter = thing.substring(thing.length()-1, thing.length());
+	if(thing.length()==1) {
+		thing="";
+	}
+	else
+	{
+		thing=thing.substring(0, thing.length()-1);
 	label.setText(thing);
 	text.push(lastletter);
 	System.out.println(lastletter);
-	
+	}
 }
 else if(e.getKeyCode()== KeyEvent.VK_SHIFT){
+	System.out.println(text.peek());
 	thing = thing+text.pop();
+label.setText(thing);
 
 }
 else{
