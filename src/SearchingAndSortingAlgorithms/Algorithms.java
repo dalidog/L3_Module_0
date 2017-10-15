@@ -48,4 +48,29 @@ public class Algorithms {
 		System.out.println(biggestnum);
 		return biggestnum;
 	}
+	public static String findLongestWord (List<String> words) {
+		String biggestword = words.get(0);
+		for (int i = 0; i < words.size(); i++) {
+			String w = words.get(i);
+			if(biggestword.length() < w.length()) {
+				biggestword = w;
+			}
+		}
+		System.out.println(biggestword);
+		return biggestword;
+	}
+	public static Boolean containsSOS(List<String> message1) {
+		String sos = "... --- ...";
+		for (int i = 0; i < message1.size(); i++) {
+			String message =message1.get(i);
+
+		if(message.equals(sos) ) {
+			System.out.println(true);
+			return true;
+
+		}}
+		 System.out.println(false);
+		return false;
+
+	}
 }
